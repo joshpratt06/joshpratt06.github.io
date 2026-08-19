@@ -13,7 +13,12 @@
         <title>Josh Pratt</title>
     </head>
     <body>
-        <h1>Josh Pratt</h1>
+        <header class="headline">
+            <h1>Josh Pratt</h1>
+            <button id="theme-toggle" type="button" aria-label="Switch to dark mode">
+            <img src="Images/moon.png" alt="">  
+            </button>
+        </header>
         <nav>
             <ul>
                 <li><a href="#about">About Me</a></li>
@@ -36,14 +41,14 @@
                             <p>This website was created using HTML and CSS. It is a simple website that showcases my skills and projects. I plan on adding more features to it in the future.</p>
                             <a href="https://github.com/joshpratt06/joshpratt06.github.io" target="_blank" rel="noopener">View on GitHub</a>
                         </article>
-                        <img src="images/website.jpg" alt="Laptop image">
+                        <img class="projects-img" src="Images/website.jpg" alt="Laptop image">
                     </div>
                     <div class="column is-full-mobile is-half-tablet is-one-desktop is-one-third-widescreen is-one-third-fullhd">
                         <article>
                             <h3>Text Based Games</h3>
                             <p>I created two text based games using Java, which were my first proper projects. In one game you had to explore an abandoned prison, collect items and solve puzzles to escape. The other was a resource management game in which you had to build structures to create or use different resources.</p>
                         </article>
-                        <img src="images/text game.jpg" alt="Text game image">
+                        <img class="projects-img" src="Images/text game.jpg" alt="Text game image">
                     </div>
                     <div class="column is-full-mobile is-half-tablet is-one-desktop is-one-third-widescreen is-one-third-fullhd">
                         <article>
@@ -51,7 +56,7 @@
                             <p>I'm currently working on a chess game using HTML and JavaScript. It's a simple implementation of the classic game, which I'm doing for some exposure to different coding languages and styles.</p>
                             <a href="https://github.com/joshpratt06/chess-game-app" target="_blank" rel="noopener">View on GitHub</a>
                         </article>
-                        <img src="images/chess.jpeg" alt="Chess image">
+                        <img class="projects-img" src="Images/chess.jpeg" alt="Chess image">
                     </div>
                 </div>
             </section>
@@ -63,5 +68,15 @@
             </section>
             <footer>Josh Pratt 2026</footer>
         </main>
+        <script>
+            const themeToggle = document.querySelector('#theme-toggle');
+            const themeImage = themeToggle.querySelector('img');
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDark = document.body.classList.contains('dark-mode');
+                themeImage.src = isDark ? 'Images/sun.png' : 'Images/moon.png';
+                themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            });
+        </script>
     </body>
 </html>
